@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ShardingJdbcConfig {
 
     /**
-     * 通过硬编码方式来配置数据源
+     * 通过硬编码方式来配置数据源 本项目采用 application 中的配置
      */
     //@Bean
     DataSource dataSource() throws SQLException {
