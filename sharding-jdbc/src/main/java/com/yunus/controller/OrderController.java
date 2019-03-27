@@ -3,6 +3,7 @@ package com.yunus.controller;
 import com.yunus.entity.Order;
 import com.yunus.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,7 +26,12 @@ public class OrderController {
     }
 
     @GetMapping
-    public List<Order> list(){
+    public List<Order> list() {
         return orderService.list();
+    }
+
+    @GetMapping("/page")
+    public Page<Order> page(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return orderService.listByPage(page, size);
     }
 }

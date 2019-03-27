@@ -3,6 +3,8 @@ package com.yunus.service;
 import com.yunus.entity.Order;
 import com.yunus.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +21,10 @@ public class OrderServiceImpl implements OrderService {
 
     public List<Order> list() {
         return orderRepository.findAll();
+    }
+
+    public Page<Order> listByPage(int page, int size) {
+        return orderRepository.findAll(PageRequest.of(page, size));
     }
 
     public Order save(Order form) {

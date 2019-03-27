@@ -1,6 +1,7 @@
 package com.yunus.service;
 
 import com.yunus.entity.Order;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -24,4 +25,13 @@ public interface OrderService {
      * @return
      */
     Order save(Order form);
+
+    /**
+     * 分页查询
+     *
+     * @param page 当前页
+     * @param size 一页多少条
+     * @return
+     */
+    Page<Order> listByPage(int page, int size);
 }
